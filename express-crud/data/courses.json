@@ -1,0 +1,23 @@
+[
+    {
+        "id": 2,
+        "name": "React JS: Fundamentals",
+        "price": 399,
+        "duration": "4 months",
+        "creator": "Khusnaseeb"
+    },
+    {
+        "id": 3,
+        "name": "PHP Training",
+        "price": "399",
+        "duration": "2 Weeks",
+        "creator": "Anchal"
+    },
+    {
+        "id": 4,
+        "name": "PHP Training: Advanced",
+        "price": "1499",
+        "duration": "4 Weeks",
+        "creator": "Anchal"
+    }
+]
