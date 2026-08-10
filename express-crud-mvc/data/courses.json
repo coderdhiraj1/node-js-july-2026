@@ -1,0 +1,16 @@
+[
+    {
+        "id": 2,
+        "name": "PHP Training: New",
+        "price": "399",
+        "duration": "2 Weeks",
+        "creator": "Anchal"
+    },
+    {
+        "id": 3,
+        "name": "PHP Training: Basic 1",
+        "price": "399",
+        "duration": "2 Weeks",
+        "creator": "Anchal"
+    }
+]
