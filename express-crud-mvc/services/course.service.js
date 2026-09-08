@@ -4,7 +4,7 @@ const FILE = "./data/courses.json";
 
 export async function all(){
     const courses = await readFile(FILE);
-    return courses;
+    return courses; 
 }
 
 export async function getById(req){
