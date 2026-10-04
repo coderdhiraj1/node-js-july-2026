@@ -23,7 +23,7 @@ const create = async (req, res) => {
             });
         }
 
-        const savedBook = await createBook({ title, author, isbn, publishedDate });
+        const savedBook = await createBook(req.body);
         
         return res.status(201).json({
             success: true,
