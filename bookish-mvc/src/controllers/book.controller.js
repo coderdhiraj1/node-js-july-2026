@@ -1,4 +1,4 @@
-import { fetchBooks, createBook, checkDuplicateISBN, findBook, isObjectIdValid, updateBook, removeBook } from "../services/book.service.js";
+import { fetchBooks, createBook, checkDuplicateISBN, findBook, isObjectIdValid, updateBook, removeBook, getUsersWithBooks } from "../services/book.service.js";
 
 
 const getAll = async (req, res) => {
@@ -23,7 +23,9 @@ const create = async (req, res) => {
             });
         }
 
-        const savedBook = await createBook(req.body);
+        const currentUserId = req.user._id;
+
+        const savedBook = await createBook(req.body, currentUserId);
         
         return res.status(201).json({
             success: true,
@@ -33,7 +35,7 @@ const create = async (req, res) => {
     } catch(err){
         return res.status(500).json({
             success: false,
-            message: "Something went wrong!",
+            message: "Something went wrong!"
         });
     }
 }
@@ -117,4 +119,22 @@ const remove = async (req, res) => {
     });
 }
 
-export { getAll, create, find, update, remove };
+const getUsers = async (req, res) => {
+
+    const users = await getUsersWithBooks(req.user._id);
+
+    if (!users || users.length === 0) {
+        return res.status(404).json({
+            success: false,
+            message: "No users found!"
+        });
+    }
+
+    res.json({
+        success: true,
+        message: `${users.length} users retrieved successfully`,
+        data: users
+    })
+}
+
+export { getAll, create, find, update, remove, getUsers };

@@ -18,6 +18,10 @@ const bookSchema = new Schema({
     publishedDate: {
         type: Date,
         required: true
+    },
+    createdBy: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
     }
 }, {
     timestamps: true

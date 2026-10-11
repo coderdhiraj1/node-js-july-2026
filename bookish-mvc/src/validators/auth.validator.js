@@ -16,7 +16,7 @@ export const registerSchema = z.object({
     confirmPassword: z
         .string(),
     role: z
-        .enum(['admin',"member"], { message: "Role must be either 'admin' or 'member'" })
+        .enum(['admin',"member","superadmin"], { message: "Role must be either 'admin' or 'member' or 'superadmin'" })
 }).refine((data) => data.password === data.confirmPassword, {
     message: "Passwords do not match",
     path: ["confirmPassword"],

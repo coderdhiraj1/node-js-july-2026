@@ -17,12 +17,19 @@ const userSchema = new Schema({
     },
     role: {
         type: String,
-        enum: ['admin','member'],
+        enum: ['admin','member','superadmin'],
         default: 'member'
     }
 }, {
     timestamps: true
 });
+
+// virtual popuplate books
+userSchema.virtual("books", {
+    ref: "Book",
+    localField: "_id",
+    foreignField: "createdBy"
+}); 
 
 const User = mongoose.model("User", userSchema);
 
